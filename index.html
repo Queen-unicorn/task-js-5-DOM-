@@ -4,24 +4,25 @@
   <title>Task 5</title>
 </head>
 
-<body id="body">
-  <h1>List of links</h1>
+<body>
+  <h1 toTrack="" id="header">List of links</h1>
   <div id="controls">
     <div id="link-field-label">
-      <h3>Type the link</h3>
-      <input type="text" placeholder="https://www.google.com/" id="linkField" />
+      <h3 toTrack="">Type the link</h3>
+      <input type="text" placeholder="https://www.google.com/" id="linkField" toTrack=""/>
     </div>
-    <button id="addButton">Add to list</button>
+    <button id="addButton" toTrack="">Add to list</button>
   </div>
 
   <div id="data">
-    <h2>Your added links</h2>
-    <div id="links"></div>
+    <h2 toTrack="">Your added links</h2>
+    <div id="links" toTrack=""></div>
   </div>
 
   <div id="track-info">
-    <button id="loadButton">Load data</button>
-    <div id="loaded-data"></div>
+    <button id="loadButton" toTrack="">Load data</button>
+    <button id="clearButton" toTrack="">Clear data</button>
+    <div id="loadedData"></div>
   </div>
 </body>
 
