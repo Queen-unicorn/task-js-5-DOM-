@@ -6,8 +6,6 @@ for (let item of itemsToTrack) {
   console.log(item.textContent);
 }
 
-//export function init() {}
-
 export function track(item) {
   item.addEventListener("click", e => {
     e.stopPropagation();
