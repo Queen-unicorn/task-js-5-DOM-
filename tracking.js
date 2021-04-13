@@ -1,9 +1,12 @@
-let itemsToTrack = document.querySelectorAll("button,[toTrack]");
+let itemsToTrack = [];
 let tracked = [];
 
-for (let item of itemsToTrack) {
-  track(item);
-  console.log(item.textContent);
+export function setItemsToTrack(arrayOfName = "button,[toTrack]") {
+  itemsToTrack = document.querySelectorAll(arrayOfName);
+  for (let item of itemsToTrack) {
+    track(item);
+    console.log(item.textContent);
+  }
 }
 
 export function track(item) {

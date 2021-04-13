@@ -2,26 +2,28 @@ import "./style.css";
 import * as Track from "./tracking.js";
 import * as ToDo from "./todolist.js";
 
-let toDoList = new ToDo.ToDoList();
+function App() {
+  let toDoList = new ToDo.ToDoList();
 
-let loadButton = document.getElementById("loadButton");
-let clearButton = document.getElementById("clearButton");
-let toLoad = document.getElementById("loadedData");
+  let loadButton = document.getElementById("loadButton");
+  let clearButton = document.getElementById("clearButton");
+  let toLoad = document.getElementById("loadedData");
+  Track.setItemsToTrack("button,[toTrack]");
 
-loadButton.addEventListener("click", e => {
-  renderData();
-  clearButton.style.display = "inline";
-});
+  loadButton.addEventListener("click", e => {
+    renderData();
+    clearButton.style.display = "inline";
+  });
 
-clearButton.addEventListener("click", e => {
-  Track.clear();
-  toLoad.innerHTML = "";
-  clearButton.style.display = "none";
-});
+  clearButton.addEventListener("click", e => {
+    Track.clear();
+    toLoad.innerHTML = "";
+    clearButton.style.display = "none";
+  });
 
-function renderData() {
-  let arr = Track.getTrackInfo();
-  let string = `
+  function renderData() {
+    let arr = Track.getTrackInfo();
+    let string = `
     <table>
       <tr>
         <td>Tag name</td>
@@ -30,8 +32,8 @@ function renderData() {
         <td>Text</td>
       </tr>
   `;
-  for (let i of arr) {
-    string += `
+    for (let i of arr) {
+      string += `
       <tr>
         <td>${i.tagName}</td>
         <td>${i.elementId}</td>
@@ -39,9 +41,12 @@ function renderData() {
         <td>${i.text}</td>
       </tr> 
     `;
-  }
-  string += `
+    }
+    string += `
     </table>
   `;
-  toLoad.innerHTML = string;
+    toLoad.innerHTML = string;
+  }
 }
+
+App();
